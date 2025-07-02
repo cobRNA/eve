@@ -20,7 +20,7 @@
    `cat hg38.chrom.sizes | awk '{print $1"\t"0"\t"$2"\t"$1"|0|"$2"\t"0"\t""-"}' > hg38.chrom.sizes.bed6`
    `cat hg38.chrom.sizes | awk '{print $1"\t"0"\t"$2"\t"$1"|0|"$2"\t"0"\t""+"}' >> hg38.chrom.sizes.bed6`
 3. Subtract gene coordinates from chr sizes and convert to gtf:
-   `bedtools subtract -s -a hg38.chrom.sizes.bed6 -b gencode.v48.annotation.loci.coords.bed6 | ../Utils/bed2gff.pl - | awk -F'\t' '{$3="intergenic"; OFS="\t"; print}' > gencode.v48.annotation.intergenic.gtf`
+   `bedtools subtract -s -a hg38.chrom.sizes.bed6 -b gencode.v48.annotation.loci.coords.bed6 | ../Utils/bed2gff.pl - | awk -F'\t' '{$3="intergenic"; OFS="\t"; print}' | sed 's/transcript_id/gene_id/g' > gencode.v48.annotation.intergenic.gtf`
 
 ### Combine exons + introns + intergenic:
 
