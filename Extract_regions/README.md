@@ -24,7 +24,7 @@
 
 ### Combine exons + introns + intergenic:
 
-`cat gencode.v48.annotation.exons.gtf gencode.v48.annotation.introns.gtf gencode.v48.annotation.intergenic.gtf | gzip > gencode.v48.annotation.combined.gt.gz`
+`cat gencode.v48.annotation.exons.gtf gencode.v48.annotation.introns.gtf gencode.v48.annotation.intergenic.gtf | gzip > gencode.v48.annotation.combined.gtf.gz`
 
 ### Compress files to fit GitHub:
 
